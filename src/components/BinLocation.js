@@ -6,11 +6,13 @@ class BinLocation extends Component {
         super()
         this.state= {
             recycleBins: [],
-            latitude: null,
-            longitude: null,
+            latitude: 0,
+            longitude: 0,
+            distance: []
         }
         this.getLocation = this.getLocation.bind(this);
         this.getCoordinates = this.getCoordinates.bind(this)
+        this.updatingDistance = this.updatingDistance.bind(this)
     }
 
     getLocation() {
@@ -36,7 +38,7 @@ class BinLocation extends Component {
             })
     }
 
-    findingDistance(lat1, lat2, lon1, lon2) {
+    calculatingDistance(lat1, lat2, lon1, lon2) {
         const dlon = [lon2 - lon1] * [Math.PI / 180]
         const dlat = [lat2 - lat1] * [Math.PI / 180]
         const a = Math.sin(dlat / 2) * Math.sin(dlat / 2) + 
@@ -47,14 +49,24 @@ class BinLocation extends Component {
         return d
     }
 
+    updatingDistance() {
+        this.setState(prevState => {
+            const updatedDistance = prevState.recycleBins.map(recyclecan => {
+                return this.calculatingDistance(this.state.latitude, recyclecan.latitude, this.state.longitude, recyclecan.longitude)
+            })
+            return {
+                miles: updatedDistance
+            }
+        })
+    }
+
     render() {
 
-        const listOfBins = this.state.recycleBins.map(recycleCan => <FindingBin 
-                                                                        key={recycleCan.id} 
-                                                                        recycleCan={recycleCan}
+        const listOfBins = this.state.distance.map(miles => <FindingBin 
+                                                                        key={miles.id} 
+                                                                        miles={miles}
                                                                         userLatitude={this.state.latitude}
                                                                         userLongitude={this.state.longitude}
-                                                                        findingDistance={this.findingDistance}
                                                                     />)
 
         return (
