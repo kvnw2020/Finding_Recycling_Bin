@@ -12,7 +12,7 @@ class BinLocation extends Component {
         }
         this.getLocation = this.getLocation.bind(this);
         this.getCoordinates = this.getCoordinates.bind(this)
-        this.updatingDistance = this.updatingDistance.bind(this)
+        this.componentDidUpdate = this.componentDidUpdate.bind(this)
     }
 
     getLocation() {
@@ -49,15 +49,13 @@ class BinLocation extends Component {
         return d
     }
 
-    updatingDistance() {
-        this.setState(prevState => {
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.distance.length !== prevState.recycleBins.length) {
             const updatedDistance = prevState.recycleBins.map(recyclecan => {
                 return this.calculatingDistance(this.state.latitude, recyclecan.latitude, this.state.longitude, recyclecan.longitude)
             })
-            return {
-                miles: updatedDistance
-            }
-        })
+        this.setState({distance: updatedDistance})
+        }
     }
 
     render() {
