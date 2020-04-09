@@ -1,14 +1,15 @@
 import React, {Component} from 'react'
-import FindingBin from './FindingBin'
+import DisplayAddress from './DisplayAddress'
 
-class BinLocation extends Component {
+class GettingLocation extends Component {
     constructor() {
         super()
         this.state= {
             recycleBins: [],
             latitude: 0,
             longitude: 0,
-            distance: []
+            distance: [],
+            testDistance: [13,41,27,34,4,1.25]
         }
         this.getLocation = this.getLocation.bind(this);
         this.getCoordinates = this.getCoordinates.bind(this)
@@ -58,22 +59,25 @@ class BinLocation extends Component {
         }
     }
 
+    findShortestDistance() {
+        const revisedUpdatedDistance = this.state.distance.filter(mile =>{
+            return !isNaN(mile)
+        })
+        const position = Math.min(...revisedUpdatedDistance)
+        return position
+    }
+
     render() {
 
-        const listOfBins = this.state.distance.map(miles => <FindingBin 
-                                                                        key={miles.id} 
-                                                                        miles={miles}
-                                                                        userLatitude={this.state.latitude}
-                                                                        userLongitude={this.state.longitude}
-                                                                    />)
+        const rightSpot = this.findShortestDistance()
 
         return (
             <div>
                 <button onClick={this.getLocation}>Get location.</button>
-                {listOfBins}
+                <DisplayAddress rightSpot={rightSpot} />              
             </div>
         )
     }
 }
 
-export default BinLocation
+export default GettingLocation

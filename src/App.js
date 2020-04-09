@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import BinLocation from './components/BinLocation';
+import GettingLocation from './components/GettingLocation';
 
 
 function App() {
   return (
     <div className="App">
-      <BinLocation />
+      <GettingLocation />
     </div>
   );
 }
