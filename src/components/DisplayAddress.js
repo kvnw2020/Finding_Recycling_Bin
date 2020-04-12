@@ -4,7 +4,7 @@ function DisplayAddress(props) {
 
     return (
         <div className='box'>
-            <p>Nearest recycling is {props.rightSpot} miles away.</p>
+            <p>The closest recycling is at {props.closestOne} </p>
         </div>
     )
 }

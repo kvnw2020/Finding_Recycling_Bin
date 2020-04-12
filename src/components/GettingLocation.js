@@ -9,7 +9,6 @@ class GettingLocation extends Component {
             latitude: 0,
             longitude: 0,
             distance: [],
-            testDistance: [13,41,27,34,4,1.25]
         }
         this.getLocation = this.getLocation.bind(this);
         this.getCoordinates = this.getCoordinates.bind(this)
@@ -63,18 +62,18 @@ class GettingLocation extends Component {
         const revisedUpdatedDistance = this.state.distance.filter(mile =>{
             return !isNaN(mile)
         })
-        const position = Math.min(...revisedUpdatedDistance)
+        const position = revisedUpdatedDistance.indexOf(Math.min(...revisedUpdatedDistance))
         return position
     }
 
     render() {
 
-        const rightSpot = this.findShortestDistance()
-
+        const closestOne = this.findShortestDistance()
+        
         return (
             <div>
                 <button onClick={this.getLocation}>Get location.</button>
-                <DisplayAddress rightSpot={rightSpot} />              
+                <DisplayAddress closestOne={closestOne} />
             </div>
         )
     }
