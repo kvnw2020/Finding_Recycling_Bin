@@ -9,6 +9,7 @@ class GettingLocation extends Component {
             latitude: 0,
             longitude: 0,
             distance: [],
+            index: 0
         }
         this.getLocation = this.getLocation.bind(this);
         this.getCoordinates = this.getCoordinates.bind(this)
@@ -59,21 +60,31 @@ class GettingLocation extends Component {
     }
 
     findShortestDistance() {
-        const revisedUpdatedDistance = this.state.distance.filter(mile =>{
-            return !isNaN(mile)
-        })
-        const position = revisedUpdatedDistance.indexOf(Math.min(...revisedUpdatedDistance))
-        return position
+            const revisedUpdatedDistance = this.state.distance.filter(mile =>{
+                return !isNaN(mile)
+            })
+            const position = revisedUpdatedDistance.indexOf(Math.min(...revisedUpdatedDistance))
+            return position
     }
 
     render() {
 
         const closestOne = this.findShortestDistance()
-        
+        console.log(this.state.recycleBins[closestOne])
+
         return (
             <div>
                 <button onClick={this.getLocation}>Get location.</button>
-                <DisplayAddress closestOne={closestOne} />
+                {
+                    closestOne > 0 ?
+                    <DisplayAddress park={this.state.recycleBins[closestOne].park_site_name} 
+                                address={this.state.recycleBins[closestOne].address} 
+                                borough={this.state.recycleBins[closestOne].borough}
+                                latitude={this.state.recycleBins[closestOne].latitude}
+                                longitude={this.state.recycleBins[closestOne].longitude} 
+                    /> : 
+                    <p>Waiting...</p>
+                }
             </div>
         )
     }

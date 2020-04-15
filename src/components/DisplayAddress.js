@@ -4,7 +4,10 @@ function DisplayAddress(props) {
 
     return (
         <div className='box'>
-            <p>The closest recycling is at {props.closestOne} </p>
+            <p>The closest recycling is at:</p>
+            <p>{props.park}</p>
+            <p>{props.address}, {props.borough}</p>
+            <p>{props.latitude}, {props.longitude}</p>
         </div>
     )
 }
