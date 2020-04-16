@@ -77,13 +77,15 @@ class GettingLocation extends Component {
                 <button onClick={this.getLocation}>Get location.</button>
                 {
                     closestOne > 0 ?
-                    <DisplayAddress park={this.state.recycleBins[closestOne].park_site_name} 
+                    <DisplayAddress
+                                distance={this.state.distance[closestOne]}
+                                park={this.state.recycleBins[closestOne].park_site_name} 
                                 address={this.state.recycleBins[closestOne].address} 
                                 borough={this.state.recycleBins[closestOne].borough}
                                 latitude={this.state.recycleBins[closestOne].latitude}
                                 longitude={this.state.recycleBins[closestOne].longitude} 
                     /> : 
-                    <p>Waiting...</p>
+                    <p>Waiting for your location...</p>
                 }
             </div>
         )
