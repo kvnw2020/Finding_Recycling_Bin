@@ -74,7 +74,7 @@ class GettingLocation extends Component {
 
         return (
             <div>
-                <button onClick={this.getLocation}>Get location.</button>
+                <button className='button' onClick={this.getLocation}><span className='skew-fix'>Get location.</span></button>
                 {
                     closestOne > 0 ?
                     <DisplayAddress

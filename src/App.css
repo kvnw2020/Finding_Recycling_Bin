@@ -1,8 +1,31 @@
 .App {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 
 .box {
-  border-bottom: 1px solid #cecece;;
+  border-bottom: 1px solid black;
 }
 
+.button {
+  font-size: large;
+  font-family: 'Blinker', sans-serif;
+  box-shadow:10px 10px 0 rgba(0,0,0,.5);
+  transform: skew(-20deg);
+}
+
+.skew-fix {
+  display:inline-block;
+  transform: skew(20deg);
+}
+
+.about {
+  background-color: rgb(161, 207, 250);
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 25px;
+  padding: 2px;
+  margin: 10px;
+}
