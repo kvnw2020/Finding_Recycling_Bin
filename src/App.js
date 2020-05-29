@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import GettingLocation from './components/GettingLocation';
 import Description from './components/Description';
+import MapContainer from './components/MapContainer'
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <Description />
       <GettingLocation />
+      <MapContainer />
     </div>
   );
 }
