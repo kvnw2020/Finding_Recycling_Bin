@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Description />
       <GettingLocation />
-      <MapContainer />
+      
     </div>
   );
 }

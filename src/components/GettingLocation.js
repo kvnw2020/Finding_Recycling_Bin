@@ -70,11 +70,11 @@ class GettingLocation extends Component {
     render() {
 
         const closestOne = this.findShortestDistance()
-        console.log(this.state.recycleBins[closestOne])
+        console.log(this.state.longitude, this.state.latitude)
 
         return (
             <div>
-                <button className='button' onClick={this.getLocation}><span className='skew-fix'>Get location.</span></button>
+                <button className='button' onClick={this.getLocation}><span className='skew-fix'>Find.</span></button>
                 {
                     closestOne > 0 ?
                     <DisplayAddress
