@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Finding_Recycling_Bin/static/css/main.ed84b804.chunk.css",
+    "main.js": "/Finding_Recycling_Bin/static/js/main.3e3a3be2.chunk.js",
+    "main.js.map": "/Finding_Recycling_Bin/static/js/main.3e3a3be2.chunk.js.map",
+    "runtime-main.js": "/Finding_Recycling_Bin/static/js/runtime-main.5921dd22.js",
+    "runtime-main.js.map": "/Finding_Recycling_Bin/static/js/runtime-main.5921dd22.js.map",
+    "static/js/2.af8d66a1.chunk.js": "/Finding_Recycling_Bin/static/js/2.af8d66a1.chunk.js",
+    "static/js/2.af8d66a1.chunk.js.map": "/Finding_Recycling_Bin/static/js/2.af8d66a1.chunk.js.map",
+    "index.html": "/Finding_Recycling_Bin/index.html",
+    "precache-manifest.91938f2f78a79a52ba215f5dc9614d04.js": "/Finding_Recycling_Bin/precache-manifest.91938f2f78a79a52ba215f5dc9614d04.js",
+    "service-worker.js": "/Finding_Recycling_Bin/service-worker.js",
+    "static/css/main.ed84b804.chunk.css.map": "/Finding_Recycling_Bin/static/css/main.ed84b804.chunk.css.map",
+    "static/js/2.af8d66a1.chunk.js.LICENSE.txt": "/Finding_Recycling_Bin/static/js/2.af8d66a1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5921dd22.js",
+    "static/js/2.af8d66a1.chunk.js",
+    "static/css/main.ed84b804.chunk.css",
+    "static/js/main.3e3a3be2.chunk.js"
+  ]
+}
